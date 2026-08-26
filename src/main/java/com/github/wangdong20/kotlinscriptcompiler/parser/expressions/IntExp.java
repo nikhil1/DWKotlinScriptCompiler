@@ -1,0 +1,30 @@
+package com.github.wangdong20.kotlinscriptcompiler.parser.expressions;
+
+public class IntExp implements Exp {
+    private final int value;
+
+    public IntExp(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof IntExp exp) {
+            if(exp.getValue() == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "IntExp{" +
+                "value=" + value +
+                '}';
+    }
+}

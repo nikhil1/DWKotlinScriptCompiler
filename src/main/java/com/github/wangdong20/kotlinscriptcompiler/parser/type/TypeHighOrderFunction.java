@@ -1,0 +1,46 @@
+package com.github.wangdong20.kotlinscriptcompiler.parser.type;
+
+import java.util.List;
+import java.util.Objects;
+
+public class TypeHighOrderFunction implements Type {
+    private final List<Type> parameterList;
+    private final Type returnType;
+
+    public TypeHighOrderFunction(List<Type> parameterList, Type returnType) {
+        this.parameterList = parameterList;
+        this.returnType = returnType;
+    }
+
+    public List<Type> getParameterList() {
+        return parameterList;
+    }
+
+    public Type getReturnType() {
+        return returnType;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof  TypeHighOrderFunction function) {
+            if(function.getParameterList().equals(parameterList) &&
+                    function.getReturnType().equals(returnType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parameterList, returnType);
+    }
+
+    @Override
+    public String toString() {
+        return "TypeHighOrderFunction{" +
+                "parameterList=" + parameterList +
+                ", returnType=" + returnType +
+                '}';
+    }
+}
